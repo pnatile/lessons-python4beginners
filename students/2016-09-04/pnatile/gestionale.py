@@ -8,7 +8,7 @@ def get_person_str(p):
 def main():
 	PEOPLE = []
 	"""
-	invece di fare così
+	invece di fare cosi
 	want_continue = True
 	while want_continue:
 	e testare sempre want_continue
@@ -45,10 +45,26 @@ def main():
 		# if choice and choice.upper()[0] == "N"
 	return PEOPLE
 
+def compute_annual_all(list_of_dicts):
+	for p in list_of_dicts:
+		p = compute_annual_single(p)
+		print(	"Nome: {name}, city: {city}, stipendio: {salary}, annual : {annual}".format(**p) )
+# non ho bisogno di restituire list_of_dicts essendo oggetto mutable e 
+
+
+def compute_annual_single(p):
+	annual = int(p["salary"])*13
+	p["annual"]=annual
+
+def group_by_city(list_of_dicts):
+	
+	for p in list_of_dicts:
+		city ==p["city"] :
+		list_of_dicts.get(city).append(p)
 	
 def get_json(data):
 	"""
-	json.dump metodo che ha in input già il file
+	json.dump metodo che ha in input gia il file
 	json.dumps ha in input una list
 	json.load carica file
 	json.loads carica stringa
@@ -83,6 +99,7 @@ def save(list_of_dicts, fname="data.txt"):
 	
 def main_and_save(argv)	:
 	PEOPLE = main()
+	PEOPLE = comput_annual_all(PEOPLE)
 	print("Lista parametri: {}".format(argv))
 	if len(argv)>1:
 		save(PEOPLE, fname=argv[1])

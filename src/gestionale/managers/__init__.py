@@ -5,15 +5,15 @@ import backends
 
 
 BACKENDS_MAP = {
-    "son": backends.JsonExporter,
-    "csv": backends.CsvExporter
+    "son": backends.JsonManager,
+    "csv": backends.CsvManager
 }
 
 
-people_fname = r"c:\Users\gigi\lessons-python4beginners\src\gestionale\people_fixture.json"
+people_fname = r"C:\corsoPython\lessons-python4beginners\src\scripts\people_fixture.json"
 with open(people_fname, "rb") as fpeople:
     PEOPLE = json.load(fpeople)
-outfname = r"c:\Users\gigi\a.txt"
+outfname = r"c:\Users\m.natile\a.txt"
 
 
 # OLD: def apply_exportation(xp, fname, data):
@@ -30,7 +30,7 @@ def apply_exportation(xp, data):
 def apply_exportation_from_file(fname, data):
     
     ext = fname[-3:]
-    xp_klass = BACKENDS_MAP.get(ext, backends.FileExporter)
+    xp_klass = BACKENDS_MAP.get(ext, backends.FileManager)
     
     xp = xp_klass(f)
     # apply_exportation(xp, data)

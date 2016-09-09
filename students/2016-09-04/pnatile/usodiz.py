@@ -69,5 +69,16 @@ def get_input(msg):
 def scrivi_file():	
 	print("Scrivo file... ")
 	
+def mod_list() :
+	l3 = [1,2,3,4,5,6,7,8,9]
+	l2 = [x*2 for x in l3]
+	print(l2)
+	d4 = { k:int(v*2) for k, v in [(0,1),(1,2), (2,3)]	}
+	print(d4)
+	{k for k in l3} #list comprension per set
+	h =zip(l3,l2)  #mette insieme n liste e accoppia gli elementi, se hanno dimensione diverse le liste si ferma al max iteratore in comune
+	d4 = { k:v for k, v in zip(l3,l2)	}
+	print(h)
+	
 if __name__ == "__main__":
     main()
